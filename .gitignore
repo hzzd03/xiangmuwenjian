@@ -1,0 +1,36 @@
+# 操作系统
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 依赖目录
+node_modules/
+vendor/
+venv/
+__pycache__/
+
+# 构建输出
+dist/
+build/
+out/
+*.log
+
+# 环境变量
+.env
+.env.local
+.env.*.local
+
+# 临时文件
+*.tmp
+*.temp
+.cache/
+
+# Claude Code
+.claude/
