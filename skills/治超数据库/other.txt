@@ -1,0 +1,565 @@
+CREATE TABLE [dbo].[ZC_CheckData_Other] (
+  [fID] uniqueidentifier DEFAULT newid() NOT NULL,
+  [fMainID] uniqueidentifier  NULL,
+  [fSecondID] uniqueidentifier  NULL,
+  [fStationNO] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fNO] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fLawObject] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fCaseClass] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fCaseType] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fViolationLevel] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fSource] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fSourceAddress] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fDriverName] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fDriverCertificateType] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fDriverNO] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fDriverSex] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fDriverQualificationNO] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fDriverNationality] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fDriverEthnic] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fDriverOld] int  NULL,
+  [fDriverPhone] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fDriverZIP] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fDriverAddress] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fDriverJob] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fCarTransportNO] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fCarCompanyName] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fCarLegalName] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fCarLegalNO] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fCarRunNO] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fCarCompanyPhone] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fCarCompanyAddress] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fTruckType] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fGoodName] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fGoodPlaceBegin] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fGoodPlaceEnd] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fRealWeight] decimal(18,2)  NULL,
+  [fRealLength] decimal(18)  NULL,
+  [fRealWidth] decimal(18)  NULL,
+  [fRealHeight] decimal(18)  NULL,
+  [fUnCheckProducer] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fUnCheckPath] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fUnCheckPassOverLoad] varchar(2000) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fUnCheckPassCharge] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fMark] varchar(2000) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fShouldAmerceMoney] float(53)  NULL,
+  [fAmerceMoney] float(53)  NULL,
+  [fZFPerson1] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fZFPerson2] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fZFPerson3] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fZFDuty1] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fZFDuty2] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fZFDuty3] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fZFNO1] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fZFNO2] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fZFNO3] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fState] int  NULL,
+  [fReason] varchar(200) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fIsUpServer] int DEFAULT 0 NOT NULL,
+  [fWeightUnload] decimal(18,2) DEFAULT 0 NOT NULL,
+  [fTime] datetime DEFAULT getdate() NOT NULL,
+  [fDealType] int DEFAULT 0 NOT NULL,
+  [fDealResult] varchar(200) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fDealID] uniqueidentifier  NULL,
+  [fDealResultOld] varchar(200) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fDealNO] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fDealTime] datetime  NULL,
+  [fManagementAgency] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fCreateTime] datetime DEFAULT getdate() NULL,
+  [fPassTime] datetime  NULL,
+  [fTimestamp] timestamp  NOT NULL,
+  [fFinishTime] datetime  NULL,
+  [fIsForce] int DEFAULT 0 NOT NULL,
+  [fJJNO] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fJJAmerceMoney] decimal(18,2)  NULL,
+  [fJJTime] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fEndTime] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fJJMark] varchar(200) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fFXTime] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fJSYCYZGZSD] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fJSYSFZH] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fJSYJSZSD] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fCJDW] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fCLFFGZQY] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fCLFFGZQYSD] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fCLYYZHQYC] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fCLYYZHQYCSD] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fCLYYZHGC] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fCLYYZHGCSD] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fHWZZDQYXXMC] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fHWZZDQYXXDZ] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fHWZZDQYXXZB] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fHWZZDQYXXSD] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fCLWFXW_CXCZ] int DEFAULT 0 NULL,
+  [fCLWFXW_BD] int DEFAULT 0 NULL,
+  [fCLWFXW_FFGZ] int DEFAULT 0 NULL,
+  [fCLWFXW_PZBFCL] int DEFAULT 0 NULL,
+  [fCJDWGC] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fState_ZZD] int DEFAULT 0 NULL,
+  [fState_CJDQY] int DEFAULT 0 NULL,
+  [fState_CJDGC] int DEFAULT 0 NULL,
+  [fState_CYZGZH] int DEFAULT 0 NULL,
+  [fState_FFGZ] int DEFAULT 0 NULL,
+  [fFFYTZB] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fYTSSQX] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fWBDCLSDQX] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fYTSSQXYS] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fWBDCLSDQXYS] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fCFJDSNO] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fIsUploadJTB] int DEFAULT 0 NULL,
+  [fZFPerson_1] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fZFPerson_2] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fLawPlace] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fDriverQualificationNOCFJDS] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fCarLegalNOCFJDS] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fCarTransportNOCFJDS] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fAnnexPath] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fYTUSCC] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  CONSTRAINT [PK_ZC_CheckData_Other] PRIMARY KEY CLUSTERED ([fID])
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)  
+ON [PRIMARY]
+)  
+ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[ZC_CheckData_Other] SET (LOCK_ESCALATION = TABLE)
+GO
+
+CREATE NONCLUSTERED INDEX [IX_ZC_CheckData_Other]
+ON [dbo].[ZC_CheckData_Other] (
+  [fMainID] ASC
+)
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'ID',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fID'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'初检单ID',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fMainID'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'复检单ID',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fSecondID'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'检测站编号',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fStationNO'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'案号[6位超限站编号+4位年月+3位流水号]',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fNO'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'执法对象',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fLawObject'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'案件类别',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fCaseClass'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'案件类型',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fCaseType'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'违法等级',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fViolationLevel'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'装载源头企业名称',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fSource'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'源头企业地址',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fSourceAddress'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'司机姓名',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fDriverName'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'证件类型',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fDriverCertificateType'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'证件编号',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fDriverNO'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'性别',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fDriverSex'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'从业资格号',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fDriverQualificationNO'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'国籍',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fDriverNationality'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'民族',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fDriverEthnic'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'年龄',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fDriverOld'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'司机电话',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fDriverPhone'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'邮编',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fDriverZIP'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'住址',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fDriverAddress'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'职务',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fDriverJob'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'道路运输证/营运证',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fCarTransportNO'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'单位名称或车辆所有人姓名',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fCarCompanyName'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'法定代表',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fCarLegalName'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'企业经营许可证号',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fCarLegalNO'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'车辆行驶证号',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fCarRunNO'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'单位电话',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fCarCompanyPhone'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'单位地址',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fCarCompanyAddress'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'车辆类型',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fTruckType'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'货物名称',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fGoodName'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'出发地点',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fGoodPlaceBegin'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'目的地点',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fGoodPlaceEnd'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'实重',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fRealWeight'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'实长',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fRealLength'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'实宽',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fRealWidth'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'实高',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fRealHeight'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'生产（改装）厂家/车辆产地',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fUnCheckProducer'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'行驶路线',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fUnCheckPath'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'途经治超站',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fUnCheckPassOverLoad'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'途经收费站',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fUnCheckPassCharge'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'备注',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fMark'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'应罚款金额(元)',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fShouldAmerceMoney'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'罚款金额(元)',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fAmerceMoney'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'状态',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fState'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'案由',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fReason'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'是否已上传',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fIsUpServer'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'卸载重量',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fWeightUnload'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'案件时间',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fTime'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'处罚决定类型：0:卸载处罚 1:处罚 2:无 3:逾期放行 4:重新立案',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fDealType'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'处罚结果',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fDealResult'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'处罚决定人员ID',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fDealID'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'处罚结果（旧）',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fDealResultOld'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'处罚决定书号',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fDealNO'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'处理时间',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fDealTime'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'管理机构',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fManagementAgency'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'创建日期',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fCreateTime'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'放行时间',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fPassTime'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'时间戳',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fTimestamp'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'结案时间',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fFinishTime'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'是否暴力抗法',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Other',
+'COLUMN', N'fIsForce'

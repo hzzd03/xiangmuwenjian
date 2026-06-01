@@ -1,0 +1,15 @@
+CREATE TABLE [dbo].[ZC_CheckData_UpLoadJTBI] (
+  [fID] uniqueidentifier  NOT NULL,
+  [fOtherID] uniqueidentifier  NULL,
+  [fCaseID] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fTime] datetime  NULL,
+  [fMessage] varchar(2000) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fState] int  NULL,
+  CONSTRAINT [PK_ZC_CheckData_UpLoadJTBI] PRIMARY KEY CLUSTERED ([fID])
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)  
+ON [PRIMARY]
+)  
+ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[ZC_CheckData_UpLoadJTBI] SET (LOCK_ESCALATION = TABLE)

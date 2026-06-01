@@ -1,0 +1,23 @@
+CREATE TABLE [dbo].[ZC_CheckData_InterprovincialCopy] (
+  [fID] uniqueidentifier  NOT NULL,
+  [copyCaseId] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fromDistCode] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [chaogaoId] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [toDistCode] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [copyOrgName] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [contactPerson] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [contactNumber] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [copyObject] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [copyType] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [copyTime] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [copyStatus] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fTime] datetime  NULL,
+  [fState] int DEFAULT 0 NULL,
+  CONSTRAINT [PK_ZC_CheckData_InterprovincialCopy] PRIMARY KEY CLUSTERED ([fID])
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)  
+ON [PRIMARY]
+)  
+ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[ZC_CheckData_InterprovincialCopy] SET (LOCK_ESCALATION = TABLE)

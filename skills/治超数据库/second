@@ -1,0 +1,228 @@
+CREATE TABLE [dbo].[ZC_CheckData_Second] (
+  [fID] uniqueidentifier DEFAULT newid() NOT NULL,
+  [fNO] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fBoardTruck] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fWeightCheck] int DEFAULT 0 NOT NULL,
+  [fWeightTruck] int DEFAULT 0 NOT NULL,
+  [fWeightOverLoad] int DEFAULT 0 NOT NULL,
+  [fWeightOverLoadRate] decimal(18,3) DEFAULT 0 NOT NULL,
+  [fVehicleAxle] int DEFAULT 0 NOT NULL,
+  [fVehicleAxleType] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fOperator] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fTime] datetime DEFAULT getdate() NOT NULL,
+  [fCheckStation] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fCheckPlace] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fWeightUnLoad] int DEFAULT 0 NOT NULL,
+  [fIsUpServer] int DEFAULT 0 NOT NULL,
+  [fRemark] varchar(100) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fTrailerNO] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fIsLink] int DEFAULT 0 NOT NULL,
+  [fIsDelete] int DEFAULT 0 NOT NULL,
+  [fState] int DEFAULT -1 NULL,
+  [fBoardTruckNew] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fVehicleAxleNew] int  NULL,
+  [fDesc] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fManagementAgency] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fTimestamp] timestamp  NOT NULL,
+  [fStandardWeightID] uniqueidentifier  NULL,
+  [fGoodName] varchar(200) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fJTBNO] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fJTBIndex] int  NULL,
+  [fLaneNumber] int  NULL,
+  [fEquipCode] int  NULL,
+  [fEquipCodeStr] varchar(50) COLLATE Chinese_PRC_CI_AS  NULL,
+  [fIsUploadJTB] int DEFAULT 0 NULL,
+  [fLength] int  NULL,
+  [fWidth] int  NULL,
+  [fHeight] int  NULL,
+  [fDirection] int  NULL,
+  [fWay] int  NULL,
+  CONSTRAINT [PK_ZC_CheckData_Second] PRIMARY KEY CLUSTERED ([fID])
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)  
+ON [PRIMARY]
+)  
+ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[ZC_CheckData_Second] SET (LOCK_ESCALATION = TABLE)
+GO
+
+CREATE NONCLUSTERED INDEX [IX_ZC_CheckData_Second]
+ON [dbo].[ZC_CheckData_Second] (
+  [fCheckStation] ASC
+)
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'ID',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Second',
+'COLUMN', N'fID'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'检测单编号',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Second',
+'COLUMN', N'fNO'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'货车牌号',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Second',
+'COLUMN', N'fBoardTruck'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'车货总重',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Second',
+'COLUMN', N'fWeightCheck'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'车货限重',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Second',
+'COLUMN', N'fWeightTruck'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'超限量',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Second',
+'COLUMN', N'fWeightOverLoad'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'超限率',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Second',
+'COLUMN', N'fWeightOverLoadRate'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'轴数',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Second',
+'COLUMN', N'fVehicleAxle'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'轴型',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Second',
+'COLUMN', N'fVehicleAxleType'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'操作员',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Second',
+'COLUMN', N'fOperator'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'检测时间',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Second',
+'COLUMN', N'fTime'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'检测站编号',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Second',
+'COLUMN', N'fCheckStation'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'检测地点',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Second',
+'COLUMN', N'fCheckPlace'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'卸载重量',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Second',
+'COLUMN', N'fWeightUnLoad'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'是否已上传',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Second',
+'COLUMN', N'fIsUpServer'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'备注',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Second',
+'COLUMN', N'fRemark'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'挂车牌号',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Second',
+'COLUMN', N'fTrailerNO'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'是否已关联',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Second',
+'COLUMN', N'fIsLink'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'是否已删除',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Second',
+'COLUMN', N'fIsDelete'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'状态',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Second',
+'COLUMN', N'fState'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'修改后货车牌号',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Second',
+'COLUMN', N'fBoardTruckNew'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'修改后轴数',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Second',
+'COLUMN', N'fVehicleAxleNew'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'说明',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Second',
+'COLUMN', N'fDesc'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'管理机构',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Second',
+'COLUMN', N'fManagementAgency'
+GO
+
+EXEC sp_addextendedproperty
+'MS_Description', N'时间戳',
+'SCHEMA', N'dbo',
+'TABLE', N'ZC_CheckData_Second',
+'COLUMN', N'fTimestamp'

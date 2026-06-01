@@ -1,0 +1,42 @@
+/*
+exec s_ZF_UpLoadDataJTBNewI 'E42D689C-0175-E356-EC0A-BF42AC725694'
+
+select * from ZC_CheckData_Other where fstate=3 order by ftime desc
+
+select * from  ZC_CheckData_UpLoadJTBI
+*/
+ALTER PROCEDURE [dbo].[s_ZF_UpLoadDataJTBNewI]
+
+	
+AS
+begin
+	
+ if DATEPART(HOUR, GETDATE())>=9 and DATEPART(HOUR, GETDATE())<19
+ begin
+	return
+ end
+select top 100
+     o.fID 
+	 ,replace(CAST(NEWID() as varchar(50)),'-','') as copyCaseId
+	,replace(CAST(o.fID as varchar(50)),'-','') as chaogaoId
+	,left(s.fNO,6) as fromDistCode
+	,p.fNO as toDistCode
+	,dbo.f_Base_PlateNONotGP(f.fboardtrucknew)  as fboardtrucknew
+	,s.fJJDepartment as copyOrgName
+	,case when f.fWeightCheck>100000 then 3 else  2 end as copyObject
+	,0 as copyType
+	,dbo.FormatDateYYYYMMDDHHMMSS(o.fDealTime) as  copyTime
+	,'01' as copyStatus
+	,'王超' as contactPerson
+	,'0311-66620769' as contactNumber
+	from ZC_CheckData_Other o with (nolock)
+	inner join ZC_CheckData_First f with (nolock) on o.fMainID=f.fID
+	inner join Base_Province p with (nolock) on left(f.fboardtrucknew,1) = p.fName and left(f.fboardtrucknew,1)<>'冀'
+	inner join Base_Station s with (nolock) on o.fStationNO=s.fNO and isnull(s.fJJDepartment,'')<>''
+	where 1=1
+	and o.fID not in (select fOtherID from ZC_CheckData_UpLoadJTBI)
+	and o.fState=3
+	and isnull(o.fIsUploadJTB,0)=1
+	and f.fTime>='2025-01-01'
+	order by f.fTime 
+end

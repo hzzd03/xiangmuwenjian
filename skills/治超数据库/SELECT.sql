@@ -1,0 +1,65 @@
+SELECT
+    -- ========== 站点核心信息（仅治超站） ==========
+    bs.fID AS 站点ID,
+    bs.fNO AS 检测站编号,
+    bs.fName AS 检测点名称,
+    c.fCode as 城市编号,
+    c.fName as 城市名称,
+    cc.fCountyNO as 区县编号,
+    cc.fCountyName as 区县名称,
+    -- ========== 检测核心数据（2025年9月+首检/预检完整数据） ==========
+    t.车牌号,
+    t.车轴数,
+    t.车货总重_kg,
+    t.车货限重_kg,
+    t.超限重量_kg,
+    t.超限率,
+    t.是否超限,
+    t.检测时间,
+    t.数据来源
+FROM
+    dbo.Base_Station bs
+inner join Base_City c on bs.fCityID=c.fID
+inner join Base_County cc on cc.fID=bs.fCountyID
+INNER JOIN (
+select
+fCheckStation as 检测站编号
+,fboardtrucknew AS 车牌号
+,fVehicleAxleNew AS 车轴数
+,fWeightCheck AS 车货总重_kg
+,fWeightTruck AS 车货限重_kg
+,fWeightOverLoad AS 超限重量_kg
+,fWeightOverLoadRate AS 超限率
+,CASE WHEN fWeightOverLoad > 0 THEN '是' ELSE '否' END AS 是否超限
+,CONVERT(varchar(50), fTime,121) AS 检测时间
+,'首检（精简）数据' AS 数据来源
+from vw_ZC_CheckData_FirstAll
+where fTime BETWEEN '2025-09-01 00:00:00' AND '2025-09-30 23:59:59'
+union
+SELECT
+fCheckStation as 检测站编号 ,
+fBoardTruck AS 车牌号,
+fVehicleAxle AS 车轴数,
+fWeightCheck AS 车货总重_kg,
+fWeightTruck AS 车货限重_kg,
+fWeightOverLoad AS 超限重量_kg,
+fWeightOverLoadRate AS 超限率,
+CASE WHEN fWeightOverLoad > 0 THEN '是' ELSE '否' END AS 是否超限,
+fTime AS 检测时间,
+CONVERT(varchar(50), fTime,121) AS 数据来源
+FROM CP.ERoad_ZC_BD.dbo.ZC_CheckData_Preview
+where fTime BETWEEN '2025-09-01 00:00:00' AND '2025-09-30 23:59:59'
+--and fState<>5
+)t ON bs.fNO = t.检测站编号
+
+-- 仅保留治超站（fType=0）+ 未停用站点
+WHERE
+    bs.fType = 0        
+    AND bs.fNoUsed = 0  
+
+-- 按检测时间降序排序
+ORDER BY
+    t.检测时间 DESC,
+    bs.fCityID,
+    bs.fCountyID,
+    bs.fName;

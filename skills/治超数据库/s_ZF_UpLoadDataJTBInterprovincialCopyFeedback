@@ -1,0 +1,22 @@
+/*
+exec s_ZF_UpLoadDataJTBInterprovincialCopy
+*/
+ALTER PROCEDURE [dbo].[s_ZF_UpLoadDataJTBInterprovincialCopyFeedback]
+
+	
+AS
+begin
+	select top 1000 
+	fID
+	,copyCaseId
+	,'河北省公路局' as orgName
+	,'2' as copyObject
+	,'11' as optCode
+	,CONVERT(varchar(19),GETDATE(),121) as optTime
+	,'' as optDesc
+	from ZC_CheckData_InterprovincialCopy with (nolock) where 1=1
+	and fTime>='2024-01-01'
+	--and LEFT(copyTime,4)='2024'
+	and fID not in (select fCaseID from ZC_CheckData_UpLoadJTBIFeedback with (nolock)) 
+	order by fTime desc
+end
